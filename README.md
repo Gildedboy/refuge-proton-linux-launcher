@@ -1,10 +1,9 @@
 # Refuge Proton Launcher for Linux
 
 Linux launcher scripts for an existing **Return to Morroc: Refuge** client.
-This repository contains no game client, patcher, graphics DLL, account data,
-or game assets. Each player must already have a lawful copy of the client.
-This repository is private; a GitHub account needs access from the owner to
-clone or download it.
+This repository contains only Linux support scripts and instructions. It does
+not provide the game client, `PRM.exe`, patcher, game data, DLLs, account data,
+or other game materials; players must obtain those separately.
 
 ## Requirements
 
@@ -16,10 +15,11 @@ clone or download it.
   Python's standard library.
 
 On CachyOS, Proton CachyOS SLR can be installed with
-`sudo pacman -S proton-cachyos-slr`. On other distributions, install Proton
-CachyOS SLR with ProtonUp-Qt and restart Steam. The launcher looks for common
-Steam compatibility-tool locations. If yours is elsewhere, set
-`REFUGE_PROTON_RUNNER` to its `proton` executable path.
+`sudo pacman -S proton-cachyos-slr`. On other distributions, Proton CachyOS SLR
+may be installed with ProtonUp-Qt, but this launcher has not been tested there;
+the install location, Steam packaging, dependencies, or window behavior may
+vary. Restart Steam after installing a compatibility tool. If the launcher
+cannot find it, set `REFUGE_PROTON_RUNNER` to its `proton` executable path.
 
 ## Install
 
@@ -94,8 +94,12 @@ Windows program, and print a direct error if something is missing.
 
 ## Tested setup
 
-The launcher enables CachyOS Proton's integrated D7VK option. The workflow was
-validated with Proton CachyOS SLR: OpenSetup settings persisted and the patcher
-launched PRM. The current client also contains local D7VK 2.2, which takes
-precedence when present. Other distributions and client revisions may need
-adjustments.
+**Tested only on CachyOS Linux with Proton CachyOS SLR.** OpenSetup saved its
+settings and the patcher launched PRM on that system. The launcher enables the
+integrated D7VK option; the prepared test client also had a local D7VK 2.2 DLL,
+which takes precedence when present. The repository does not include that DLL.
+
+No other Linux distribution has been validated. Results can vary with the
+distribution, Steam installation method, Proton build, GPU drivers, desktop
+environment, and client revision. The scripts may need changes on another
+system.
