@@ -29,10 +29,13 @@ If you did not install those packages, install both with:
 sudo pacman -S cachyos-gaming-meta cachyos-gaming-applications
 ```
 
-Steam is needed here to provide the Steam installation/runtime path that Proton
-uses. The launcher runs Proton directly; the Refuge client itself does not need
-to be downloaded from Steam or added to the Steam library. The launcher checks
-for a Steam library containing `steamapps` and passes its path to Proton.
+This launcher requires Steam to find a real Steam installation directory
+containing `steamapps`, then passes that path to Proton as
+`STEAM_COMPAT_CLIENT_INSTALL_PATH`. The game client itself does not need to be
+downloaded from Steam or added to the Steam library. If someone has Proton SLR
+but no Steam installation, this installer currently stops during its checks;
+using Proton without Steam through a manually supplied path has not been tested
+by this project.
 By default, it looks for Proton SLR at `/usr/share/steam/compatibilitytools.d/`
 and in the usual per-user Steam compatibility-tool folders. Other install
 locations need `REFUGE_PROTON_RUNNER` to be set to the Proton executable.
