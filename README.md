@@ -7,19 +7,45 @@ or other game materials; players must obtain those separately.
 
 ## Requirements
 
-- A working Steam installation and Proton CachyOS SLR compatibility tool.
+- Steam installed, with a library directory containing `steamapps`.
+- Proton CachyOS SLR installed as a Steam compatibility tool.
 - The Refuge client directory containing `PRM.exe`, `_RefugePatcher.exe`, and
   `opensetup.exe`. The folder can have any name; `Refuge-Linux` is only the
   name used for the prepared test copy in this project.
 - Bash, Python 3, and GNU coreutils. The included `prm-laa.py` uses only
   Python's standard library.
 
-On CachyOS, Proton CachyOS SLR can be installed with
-`sudo pacman -S proton-cachyos-slr`. On other distributions, Proton CachyOS SLR
-may be installed with ProtonUp-Qt, but this launcher has not been tested there;
-the install location, Steam packaging, dependencies, or window behavior may
-vary. Restart Steam after installing a compatibility tool. If the launcher
-cannot find it, set `REFUGE_PROTON_RUNNER` to its `proton` executable path.
+### CachyOS
+
+If you selected **Install Gaming packages** in CachyOS Hello, the needed packages
+should already be installed: `cachyos-gaming-meta` includes
+`proton-cachyos-slr`, and `cachyos-gaming-applications` includes Steam. The
+official [CachyOS gaming guide](https://wiki.cachyos.org/configuration/gaming/)
+documents this setup.
+
+If you did not install those packages, install both with:
+
+```bash
+sudo pacman -S cachyos-gaming-meta cachyos-gaming-applications
+```
+
+Steam is needed here to provide the Steam installation/runtime path that Proton
+uses. The launcher runs Proton directly; the Refuge client itself does not need
+to be downloaded from Steam or added to the Steam library. The launcher checks
+for a Steam library containing `steamapps` and passes its path to Proton.
+By default, it looks for Proton SLR at `/usr/share/steam/compatibilitytools.d/`
+and in the usual per-user Steam compatibility-tool folders. Other install
+locations need `REFUGE_PROTON_RUNNER` to be set to the Proton executable.
+
+### Other Linux distributions
+
+Install Steam and Proton CachyOS SLR with ProtonUp-Qt, then restart Steam. This
+launcher has only been tested on CachyOS; on other distributions the install
+location, Steam packaging, dependencies, or window behavior may vary. If the
+launcher cannot find Proton, set `REFUGE_PROTON_RUNNER` to its `proton`
+executable path. If it cannot find the Steam library, set
+`STEAM_COMPAT_CLIENT_INSTALL_PATH` to the Steam directory containing
+`steamapps`.
 
 ## Install
 
