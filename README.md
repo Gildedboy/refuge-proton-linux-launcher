@@ -61,7 +61,12 @@ The installer copies only the Linux launch scripts and LAA helper into the
 client directory, marks the launchers executable, and creates **Return to
 Morroc: Refuge** and **Settings** entries in the user's application menu. It
 uses the client folder's existing Linux PNG icons when present, otherwise it
-uses generic desktop icons. It does not need administrator access.
+uses generic desktop icons. Before copying anything, it checks the client files,
+all bundled helpers, Proton SLR, Steam's library path, and write permissions. If
+it replaces an existing support script, it saves a one-time `.before-refuge-proton`
+backup beside that file; existing menu entries get the same kind of backup.
+Missing files or failed prerequisite checks stop the installer before it
+replaces the scripts. It does not need administrator access.
 
 The first launch creates a separate `.protonprefix` next to the game files and
 sets the client paths in that prefix. The original Windows client files remain
@@ -70,7 +75,9 @@ menu entry to open OpenSetup and change the saved resolution.
 
 Running the installer again updates the launcher scripts and menu entries.
 After moving the client folder, run it again so the menu entries use the new
-path.
+path. The launchers also check their required client files and dependencies
+and write access before changing registry values, the prefix, or starting a
+Windows program, and print a direct error if something is missing.
 
 ## Files in this repository
 
