@@ -3,6 +3,8 @@
 Linux launcher scripts for an existing **Return to Morroc: Refuge** client.
 This repository contains no game client, patcher, graphics DLL, account data,
 or game assets. Each player must already have a lawful copy of the client.
+This repository is private; a GitHub account needs access from the owner to
+clone or download it.
 
 ## Requirements
 
