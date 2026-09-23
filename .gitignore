@@ -1,0 +1,9 @@
+.protonprefix/
+.wineprefix/
+*.log
+PRM.exe*
+_RefugePatcher.exe
+opensetup.exe
+*.grf
+*.dll
+savedata/
